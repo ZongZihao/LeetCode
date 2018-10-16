@@ -24,4 +24,19 @@ public class Solution {
         }
         return false;
     }
+
+    //暴力法(保存在散列表)
+    //空间复杂度 O(n)
+    //时间复杂度 O(n)
+    public bool HasCycle2(LIstNode head){
+        var hashTable = new HashSet<ListNode>();
+        var cur = head;
+        while (cur != null)
+        {
+            hashTable.Add(cur);
+            if (hashTable.Contains(cur.next)) return true;
+            cur = cur.next;
+        }
+        return false;
+    }
 }
