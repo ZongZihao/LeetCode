@@ -39,4 +39,21 @@ public class Solution {
         }
         return false;
     }
+
+    /*
+     * 快慢指针法, 若有环存在, 快慢指针必定相遇
+     * 空间复杂度 O(1)
+     * 时间复杂度 O(n) 
+     */
+    public bool HasCycle(ListNode head) {
+        //定义快慢两指针
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) return true;
+        }
+        return false;
+    }
 }
